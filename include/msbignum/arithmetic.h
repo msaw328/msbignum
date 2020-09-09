@@ -3,7 +3,7 @@
 
 // Arithmetic operations on bignums
 
-#include "msbignum/types.h"
+#include <msbignum/types.h>
 
 // Add bignums
 void bignum_add(bignum_t* a, bignum_t* b, bignum_t* result);

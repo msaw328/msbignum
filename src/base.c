@@ -30,6 +30,15 @@ void bignum_setchunk(bignum_t* bn, bignum_chunk_t value) {
     DEBUG_DUMP_BIGNUM(bn, "Bignum set to %u", value);
 }
 
+void bignum_fromdata(bignum_t* bn, bignum_chunk_t* data, size_t len) {
+    bn->data = malloc(sizeof(bignum_chunk_t) * len);
+    memcpy(bn->data, data, sizeof(bignum_chunk_t) * len);
+
+    bn->allocated = len;
+
+    DEBUG_DUMP_BIGNUM(bn, "%s", "Bignum created from raw data");
+}
+
 void bignum_clone(bignum_t* src, bignum_t* dst) {
     dst->data = malloc(sizeof(bignum_chunk_t) * src->allocated);
     memcpy(dst->data, src->data, sizeof(bignum_chunk_t) * src->allocated);

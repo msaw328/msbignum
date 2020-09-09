@@ -12,6 +12,7 @@ add_library(msbignum SHARED
         src/mem.c
         src/arithmetic.c
         src/chunkops.c
+        src/cmp.c
         )
 
 target_include_directories(msbignum PUBLIC include)

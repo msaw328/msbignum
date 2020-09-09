@@ -1,5 +1,5 @@
-#ifndef _BIGINT_DEFAULTS_H_
-#define _BIGINT_DEFAULTS_H_
+#ifndef _BIGNUM_DEFAULTS_H_
+#define _BIGNUM_DEFAULTS_H_
 
 #include "msbignum/types.h"
 
