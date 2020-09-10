@@ -5,12 +5,12 @@
 
 #include <msbignum/types.h>
 
-// Returns 1 if a is bigger, -1 if b is bigger and 0 if theyre equal
+// Returns > 0 if a is bigger, < 0 if b is bigger and 0 if theyre equal
 int bignum_cmp(bignum_t* a, bignum_t* b);
 
 // Utility macros for a greater-than, less-than and equal b
-#define BIGNUM_GT(a, b) (bignum_cmp(a, b) == 1)
-#define BIGNUM_LT(a, b) (bignum_cmp(a, b) == -1)
+#define BIGNUM_GT(a, b) (bignum_cmp(a, b) > 0)
+#define BIGNUM_LT(a, b) (bignum_cmp(a, b) < 0)
 #define BIGNUM_EQ(a, b) (bignum_cmp(a, b) == 0)
 
 #endif

@@ -1,3 +1,5 @@
+#include <string.h>
+
 #include "msbignum/types.h"
 
 #include "internal/mem.h"
@@ -11,12 +13,5 @@ int bignum_cmp(bignum_t* a, bignum_t* b) {
     if(a_used < b_used) return -1;
 
     // else they have equal number of chunks, compare most significant chunk
-    bignum_chunk_t a_msc = a->data[a_used - 1];
-    bignum_chunk_t b_msc = b->data[a_used - 1];
-
-    if(a_msc > b_msc) return 1;
-
-    if(a_msc < b_msc) return -1;
-
-    return 0;
+    return memcmp(a->data, b->data, sizeof(bignum_chunk_t) * a_used);
 }
