@@ -13,7 +13,7 @@ int main() {
     bignum_fromchunk(&a, 0xffffffff);
     bignum_init(&product);
 
-    bignum_mul(&a, &a, &product);
+    bignum_mul_chunk(&a, 0xffffffff, &product);
 
     return memcmp(product.data, expected_result, sizeof(bignum_chunk_t) * 2);
 }

@@ -6,6 +6,9 @@
 // Extends normal chunk to safe size which guarantees no overflows
 bignum_chunksafe_t __bignum_chunk_promote(bignum_chunk_t c);
 
+// Extends normal chunk to safe size with additional borrowed upper 32 bits (subtraction, division)
+bignum_chunksafe_t __bignum_chunk_promote_withborrow(bignum_chunk_t c, bignum_chunk_t borrow);
+
 // Get the normal chunk value from extended safe chunk
 bignum_chunk_t __bignum_chunk_value_part(bignum_chunksafe_t cs);
 
