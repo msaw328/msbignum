@@ -13,4 +13,7 @@ int bignum_cmp(bignum_t* a, bignum_t* b);
 #define BIGNUM_LT(a, b) (bignum_cmp(a, b) < 0)
 #define BIGNUM_EQ(a, b) (bignum_cmp(a, b) == 0)
 
+// Returns 1 if value of bignum is 0, 0 otherwise
+int bignum_iszero(bignum_t* bn);
+
 #endif

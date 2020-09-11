@@ -15,3 +15,7 @@ int bignum_cmp(bignum_t* a, bignum_t* b) {
     // else they have equal number of chunks, compare most significant chunk
     return memcmp(a->data, b->data, sizeof(bignum_chunk_t) * a_used);
 }
+
+int bignum_iszero(bignum_t* bn) {
+    return __bignum_chunks_used(bn) == 0;
+}

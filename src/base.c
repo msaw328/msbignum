@@ -52,6 +52,8 @@ void bignum_clone(bignum_t* src, bignum_t* dst) {
 void bignum_setzero(bignum_t* bn) {
     if(bn->allocated > 0 && bn->data != NULL)
         memset(bn->data, 0, bn->allocated * sizeof(bignum_chunk_t));
+
+    DEBUG_DUMP_BIGNUM(bn, "%s", "Bignum set to zero");
 }
 
 // Don't init
@@ -61,6 +63,8 @@ void bignum_setchunk(bignum_t* bn, bignum_chunk_t value) {
         
     if(bn->allocated > 1)
         memset(bn->data + 1, 0, bn->allocated * sizeof(bignum_chunk_t));
+
+    DEBUG_DUMP_BIGNUM(bn, "%s", "Bignum set to chunk");
 }
 
 void bignum_cleanup(bignum_t* bn) {

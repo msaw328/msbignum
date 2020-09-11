@@ -13,6 +13,7 @@ add_library(msbignum SHARED
         src/arithmetic.c
         src/chunkops.c
         src/cmp.c
+        src/strconv.c
         )
 
 target_include_directories(msbignum PUBLIC include)
