@@ -43,13 +43,19 @@ void bignum_add_chunk(bignum_t* a, bignum_chunk_t b, bignum_t* result) {
         __bignum_realloc(result, result_chunks_needed);
     
     // add stuff (we use b variable as carry)
-    int i = 0;
+    size_t i = 0;
     bignum_chunksafe_t op_result;
     while(b > 0) {
-        op_result = __bignum_chunk_promote(a->data[i]) + __bignum_chunk_promote(b);
+        op_result = __bignum_chunk_promote(a->data[i]);
+        op_result = op_result + __bignum_chunk_promote(b);
+
         result->data[i] = __bignum_chunk_value_part(op_result);
         b = __bignum_chunk_carry_part(op_result);
+
         i++;
+    }
+    for(;i < a->allocated; i++) {
+        result->data[i] = a->data[i];
     }
 
     DEBUG_DUMP_BIGNUM(result, "%s", "Bignum after add chunk");
